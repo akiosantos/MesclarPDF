@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
         for (let i = 0; i < files.length; i++) {
             const reader = new FileReader();
             reader.readAsArrayBuffer(files[i]);
-            await reader.onload = async function () {
+       reader.onload = async function () {
                 const pdfBytes = new Uint8Array(this.result);
                 const tempDoc = await PDFLib.PDFDocument.load(pdfBytes);
                 const copiedPages = await pdfDoc.copyPages(tempDoc, tempDoc.getPageIndices());
